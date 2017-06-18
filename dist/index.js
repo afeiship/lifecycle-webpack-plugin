@@ -35,8 +35,10 @@ var LifecycleWebpackPlugin = function () {
       var _this = this;
 
       var keys = Object.keys(this.options);
+      var debug = this.options.debug;
+      delete this.options.debug;
       keys.forEach(function (item) {
-        if (_this.options.debug) {
+        if (debug) {
           console.log(dasherize(item), _this.options[item]);
         } else {
           compiler.plugin(dasherize(item), _this.options[item]);

@@ -36,12 +36,13 @@ var LifecycleWebpackPlugin = function () {
 
       var keys = Object.keys(this.options);
       var debug = this.options.debug;
-      delete this.options.debug;
       keys.forEach(function (item) {
         if (debug) {
           console.log(dasherize(item), _this.options[item]);
         } else {
-          compiler.plugin(dasherize(item), _this.options[item]);
+          if (typeof _this.options[item] === 'function') {
+            compiler.plugin(dasherize(item), _this.options[item]);
+          }
         }
       });
     }

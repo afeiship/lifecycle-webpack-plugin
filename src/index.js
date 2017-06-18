@@ -1,5 +1,4 @@
 import defaults from './const';
-
 //helpers:
 function dasherize(inStr) {
   return inStr.replace(/::/g, '/')
@@ -19,12 +18,13 @@ export default class LifecycleWebpackPlugin{
   apply(compiler){
     const keys = Object.keys( this.options );
     const debug = this.options.debug;
-    delete this.options.debug;
     keys.forEach(item=>{
       if(debug){
         console.log(dasherize(item), this.options[item]);
       }else{
-        compiler.plugin(dasherize(item), this.options[item]);
+        if(typeof this.options[item] === 'function'){
+          compiler.plugin(dasherize(item), this.options[item]);
+        }
       }
     });
   }

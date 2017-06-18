@@ -16,8 +16,7 @@ export default class LifecycleWebpackPlugin{
 
   apply(compiler){
     const keys = Object.keys( this.options );
-
-    console.log(dasherize(item), this.options[item]);
+    console.log(dasherize(item))
     keys.forEach(item=>{
       compiler.plugin(dasherize(item), this.options[item]);
     });

@@ -33,8 +33,7 @@ var LifecycleWebpackPlugin = function () {
       var _this = this;
 
       var keys = Object.keys(this.options);
-
-      console.log(dasherize(item), this.options[item]);
+      console.log(dasherize(item));
       keys.forEach(function (item) {
         compiler.plugin(dasherize(item), _this.options[item]);
       });

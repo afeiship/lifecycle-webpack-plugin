@@ -23,7 +23,7 @@
 
 
 ## resouces:
-+ [webpack整体流程图]-(taobaofed)(https://img.alicdn.com/tps/TB1GVGFNXXXXXaTapXXXXXXXXXX-4436-4244.jpg)
++ [webpack整体流程图]-(from: taobaofed)
 
 ![webpack整体流程图](https://img.alicdn.com/tps/TB1GVGFNXXXXXaTapXXXXXXXXXX-4436-4244.jpg)
 

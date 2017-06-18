@@ -11,13 +11,19 @@ function dasherize(inStr) {
 
 export default class LifecycleWebpackPlugin{
   constructor(inOptions){
-    this.options = Object.assign(defaults, inOptions);
+    this.options = Object.assign(defaults, {
+      debug: false
+    },inOptions);
   }
 
   apply(compiler){
     const keys = Object.keys( this.options );
     keys.forEach(item=>{
-      compiler.plugin(dasherize(item), this.options[item]);
+      if(this.options.debug){
+        console.log(dasherize(item), this.options[item]);
+      }else{
+        compiler.plugin(dasherize(item), this.options[item]);
+      }
     });
   }
 }

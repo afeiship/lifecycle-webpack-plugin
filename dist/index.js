@@ -24,7 +24,9 @@ var LifecycleWebpackPlugin = function () {
   function LifecycleWebpackPlugin(inOptions) {
     _classCallCheck(this, LifecycleWebpackPlugin);
 
-    this.options = Object.assign(_const2.default, inOptions);
+    this.options = Object.assign(_const2.default, {
+      debug: false
+    }, inOptions);
   }
 
   _createClass(LifecycleWebpackPlugin, [{
@@ -34,7 +36,11 @@ var LifecycleWebpackPlugin = function () {
 
       var keys = Object.keys(this.options);
       keys.forEach(function (item) {
-        compiler.plugin(dasherize(item), _this.options[item]);
+        if (_this.options.debug) {
+          console.log(dasherize(item), _this.options[item]);
+        } else {
+          compiler.plugin(dasherize(item), _this.options[item]);
+        }
       });
     }
   }]);

@@ -22,8 +22,9 @@ export default class LifecycleWebpackPlugin{
       if(debug){
         console.log(dasherize(item), this.options[item]);
       }else{
-        if(typeof this.options[item] === 'function'){
-          compiler.plugin(dasherize(item), this.options[item]);
+        const callback = this.options[item];
+        if(typeof callback === 'function'){
+          compiler.plugin(dasherize(item), callback);
         }
       }
     });

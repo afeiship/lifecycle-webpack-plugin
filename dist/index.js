@@ -40,8 +40,9 @@ var LifecycleWebpackPlugin = function () {
         if (debug) {
           console.log(dasherize(item), _this.options[item]);
         } else {
-          if (typeof _this.options[item] === 'function') {
-            compiler.plugin(dasherize(item), _this.options[item]);
+          var callback = _this.options[item];
+          if (typeof callback === 'function') {
+            compiler.plugin(dasherize(item), callback);
           }
         }
       });

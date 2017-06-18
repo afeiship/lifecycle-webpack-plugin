@@ -3,7 +3,7 @@
 
 
 
-## support hookers:
+## support hooks:
 | api | 对应webpack的事件 | 描述 |
 | ---- | ----------------| ---- |
 | compile | compile | 开始编译 |
